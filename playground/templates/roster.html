@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+{% block rosterView %}
+
+      {% if grade_view == "1" %}
+        <h1> Showing only name and grade </h1>
+        <ul>
+        {% for student in class_roster %}
+        <li>
+           {{student[1]}} has a grade of {{student[2]}}
+        </li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+
+        {% if grade_view == "2" %}
+          <h1> Showing only name and class standing </h1>
+          <ul>
+          {% for student in class_roster %}
+          <li>
+             {{student[1]}} is a {{student[0]}}
+          </li>
+          {% endfor %}
+          </ul>
+        {% endif %}
+
+        {% if grade_view == "0" %}
+          <h1> List all available information about a student </h1>
+          <ul>
+          {% for student in class_roster %}
+          <li>
+            {{student[1]}} has a grade of {{student[2]}}.   {{student[0]}}
+          </li>
+          {% endfor %}
+          </ul>
+        {% endif %}
+
+{% endblock %}
